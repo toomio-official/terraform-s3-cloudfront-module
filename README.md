@@ -43,7 +43,7 @@ No modules.
 |------|-------------|------|---------|:--------:|
 | s3_bucket_name | Name for the S3 bucket | `string` | n/a | yes |
 | cloudfront_distribution_description | Description for the CloudFront distribution | `string` | n/a | yes |
-| domain_name | Domain name of the static website | `string` | n/a | yes |
+| domain_names | Domain names of the static website | `list(string)` | n/a | yes |
 | acm_certificate_arn | ARN of the ACM certificate | `string` | n/a | yes |
 | index_document | Name of the index document | `string` | `index.html` | no |
 
