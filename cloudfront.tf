@@ -48,7 +48,7 @@ resource "aws_cloudfront_distribution" "cloudfront_distribution" {
     ssl_support_method  = "sni-only"
   }
 
-  aliases = [var.domain_name]
+  aliases = var.domain_names
 
   custom_error_response {
     error_code            = 400

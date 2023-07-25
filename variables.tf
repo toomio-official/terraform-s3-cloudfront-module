@@ -6,8 +6,8 @@ variable "cloudfront_distribution_description" {
   type = string
 }
 
-variable "domain_name" {
-  type = string
+variable "domain_names" {
+  type = list(string)
 }
 
 variable "acm_certificate_arn" {
