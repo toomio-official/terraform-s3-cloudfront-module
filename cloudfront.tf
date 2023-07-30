@@ -51,61 +51,14 @@ resource "aws_cloudfront_distribution" "cloudfront_distribution" {
 
   aliases = var.domain_names
 
-  custom_error_response {
-    error_code            = 400
-    error_caching_min_ttl = 10
-  }
-
-  custom_error_response {
-    error_code            = 403
-    error_caching_min_ttl = 10
-    response_code         = 200
-    response_page_path    = "/${var.index_document}"
-  }
-
-  custom_error_response {
-    error_code            = 404
-    error_caching_min_ttl = 10
-  }
-
-  custom_error_response {
-    error_code            = 405
-    error_caching_min_ttl = 10
-  }
-
-  custom_error_response {
-    error_code            = 414
-    error_caching_min_ttl = 10
-  }
-
-  custom_error_response {
-    error_code            = 416
-    error_caching_min_ttl = 10
-  }
-
-  custom_error_response {
-    error_code            = 500
-    error_caching_min_ttl = 10
-  }
-
-  custom_error_response {
-    error_code            = 501
-    error_caching_min_ttl = 10
-  }
-
-  custom_error_response {
-    error_code            = 502
-    error_caching_min_ttl = 10
-  }
-
-  custom_error_response {
-    error_code            = 503
-    error_caching_min_ttl = 10
-  }
-
-  custom_error_response {
-    error_code            = 504
-    error_caching_min_ttl = 10
+  dynamic "custom_error_response" {
+    for_each = var.error_document != null ? [length(var.custom_error_response_codes)] : []
+    content {
+      error_code            = var.error_caching_min_ttl
+      error_caching_min_ttl = 10
+      response_code         = var.error_caching_min_ttl
+      response_page_path    = "/${var.error_document}"
+    }
   }
 }
 

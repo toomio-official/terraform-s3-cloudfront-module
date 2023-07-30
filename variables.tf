@@ -23,3 +23,8 @@ variable "error_document" {
   type    = string
   default = null
 }
+
+variable "custom_error_response_codes" {
+  type    = list(number)
+  default = [403, 404]
+}
