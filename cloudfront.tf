@@ -52,11 +52,12 @@ resource "aws_cloudfront_distribution" "cloudfront_distribution" {
   aliases = var.domain_names
 
   dynamic "custom_error_response" {
-    for_each = var.error_document != null ? [length(var.custom_error_response_codes)] : []
+    for_each = var.error_document != null ? var.custom_error_response_codes : []
+    iterator = custom_error_response_code
     content {
-      error_code            = var.custom_error_response_codes
+      error_code            = custom_error_response_code.value
       error_caching_min_ttl = 10
-      response_code         = var.custom_error_response_codes
+      response_code         = custom_error_response_code.value
       response_page_path    = "/${var.error_document}"
     }
   }
