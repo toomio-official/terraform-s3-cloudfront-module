@@ -54,9 +54,9 @@ resource "aws_cloudfront_distribution" "cloudfront_distribution" {
   dynamic "custom_error_response" {
     for_each = var.error_document != null ? [length(var.custom_error_response_codes)] : []
     content {
-      error_code            = var.error_caching_min_ttl
+      error_code            = var.custom_error_response_codes
       error_caching_min_ttl = 10
-      response_code         = var.error_caching_min_ttl
+      response_code         = var.custom_error_response_codes
       response_page_path    = "/${var.error_document}"
     }
   }
