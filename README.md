@@ -46,6 +46,8 @@ No modules.
 | domain_names | Domain names of the static website | `list(string)` | n/a | yes |
 | acm_certificate_arn | ARN of the ACM certificate | `string` | n/a | yes |
 | index_document | Name of the index document | `string` | `index.html` | no |
+| error_document | Name of the error document | `string` | n/a | no |
+| custom_error_response_codes | Error codes that should display the error document | `list(number)` | `403, 404` | no |
 
 ## Outputs
 
