@@ -55,12 +55,12 @@ resource "aws_cloudfront_distribution" "cloudfront_distribution" {
     error_caching_min_ttl = 10
   }
 
-  # custom_error_response {
-  #   error_code            = 403
-  #   error_caching_min_ttl = 10
-  #   response_code         = 200
-  #   response_page_path    = "/${var.index_document}"
-  # }
+  custom_error_response {
+    error_code            = 403
+    error_caching_min_ttl = 10
+    response_code         = 200
+    response_page_path    = "/${var.index_document}"
+  }
 
   custom_error_response {
     error_code            = 404
