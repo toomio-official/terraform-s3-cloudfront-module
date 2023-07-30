@@ -14,8 +14,9 @@ resource "aws_cloudfront_distribution" "cloudfront_distribution" {
     }
   }
 
-  enabled         = true
-  is_ipv6_enabled = true
+  enabled             = true
+  is_ipv6_enabled     = true
+  default_root_object = var.index_document
 
   default_cache_behavior {
     allowed_methods  = ["DELETE", "GET", "HEAD", "OPTIONS", "PATCH", "POST", "PUT"]
