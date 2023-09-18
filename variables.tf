@@ -19,12 +19,12 @@ variable "index_document" {
   default = "index.html"
 }
 
-variable "error_document" {
-  type    = string
-  default = null
-}
+# variable "error_document" {
+#   type    = string
+#   default = null
+# }
 
-variable "custom_error_response_codes" {
-  type    = list(number)
-  default = [403, 404]
-}
+# variable "custom_error_response_codes" {
+#   type    = list(number)
+#   default = [403, 404]
+# }
