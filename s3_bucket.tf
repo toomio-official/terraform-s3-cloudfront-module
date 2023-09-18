@@ -67,12 +67,12 @@ resource "aws_s3_bucket_website_configuration" "bucket_website_configuration" {
     suffix = var.index_document
   }
 
-  dynamic "error_document" {
-    for_each = var.error_document != null ? [1] : []
-    content {
-      key = var.error_document
-    }
-  }
+  # dynamic "error_document" {
+  #   for_each = var.error_document != null ? [1] : []
+  #   content {
+  #     key = var.error_document
+  #   }
+  # }
 }
 
 
